@@ -15,6 +15,7 @@ import {
   Code,
   ImageIcon,
   LayoutDashboard,
+  Loader2,
   MessageSquare,
   MusicIcon,
   VideoIcon,
@@ -100,7 +101,11 @@ const ProModal = () => {
             className=" w-full font-bold"
           >
             Upgrade
-            <Zap className=" h-4 w-4 ml-2 fill-black" />
+            {loading ? (
+              <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+            ) : (
+              <Zap className=" h-4 w-4 ml-2 fill-black" />
+            )}
           </Button>
         </DialogFooter>
       </DialogContent>

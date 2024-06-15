@@ -1,8 +1,15 @@
 import React, { type PropsWithChildren } from "react";
 import Navbar from "./_components/navbar";
 import Footer from "./_components/footer";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 const LandingLayout = ({ children }: PropsWithChildren) => {
+  const { userId } = auth();
+
+  if (userId) {
+    redirect("/dashboard");
+  }
   return (
     <div className=" h-full">
       <Navbar />
