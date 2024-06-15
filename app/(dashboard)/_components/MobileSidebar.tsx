@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import Sidebar from "./Sidebar";
 import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
+import { getApiLimitCount } from "@/lib/api-limit";
 
-const MobileSidebar = () => {
+const MobileSidebar = ({
+  apiLimitCount = 0,
+  isPro = false,
+}: {
+  apiLimitCount: number;
+  isPro: boolean;
+}) => {
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -36,7 +43,7 @@ const MobileSidebar = () => {
       </Button>
       <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent side="left" className=" p-2 pt-10">
-          <Sidebar />
+          <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
         </SheetContent>
       </Sheet>
     </>

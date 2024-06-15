@@ -1,15 +1,18 @@
 import React from "react";
-import Link from "next/link";
 import Logo from "@/components/logo";
-import { buttonVariants } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import MobileSidebar from "./MobileSidebar";
+import { getApiLimitCount } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const apiLimitCount = await getApiLimitCount();
+  const isPro = await checkSubscription();
+
   return (
     <nav className=" bg-zinc-950 fixed z-50 top-0 w-full h-14 px-4 border-b shadow-sm flex items-center">
       <div className=" md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
-        <MobileSidebar />
+        <MobileSidebar isPro={isPro} apiLimitCount={apiLimitCount} />
         <div className=" hidden md:flex">
           <Logo />
         </div>

@@ -16,10 +16,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,7 +49,9 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
@@ -142,11 +146,12 @@ const ConversationPage = () => {
                 key={message.content}
                 className={cn(
                   " bg-zinc-900 w-fit p-2 rounded-md flex gap-x-2",
-                  message.role === "user" && " justify-end items-center w-full bg-transparent"
+                  message.role === "user" &&
+                    " justify-end items-center w-full bg-transparent"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-               {message.content}
+                {message.content}
               </div>
             ))}
           </div>

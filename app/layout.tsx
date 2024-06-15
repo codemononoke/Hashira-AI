@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
 import type { PropsWithChildren } from "react";
+import { ModalProvider } from "@/components/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             enableSystem
             disableTransitionOnChange
           >
+            <ModalProvider/>
             {children}
           </ThemeProvider>
         </body>
