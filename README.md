@@ -1,88 +1,132 @@
-# Hashira-AI
-
 <p align="center">
-  <img src="public/logo.svg" alt="Brainstormer Logo" width="100" height="100">
+  <img src="public/logo.svg" alt="Hashira-AI Logo" width="100">
 </p>
-<h2 align="center">Hashira-AI</h2>
+<h1 align="center">Hashira-AI</h1>
 <p align="center">
-Inspired by the strength and precision of Demon Slayers, Hashira-AI offers AI tools for conversation, image, audio, video, and code generation to empower developers and creators.
+Inspired by the strength and precision of Demon Slayers, Hashira-AI offers a suite of AI tools for conversation, image, audio, video, and code generation to empower developers and creators.
+</p>
+<p align="center">
+  <img src="https://res.cloudinary.com/dmhfkaawt/image/upload/v1718265249/Screenshot_20240613_132136_mhucuk.png" alt="Hashira-AI Logo" width="100%">
 </p>
 
-![banner](https://res.cloudinary.com/dmhfkaawt/image/upload/v1718265249/Screenshot_20240613_132136_mhucuk.png)
+## 📋 Table of Contents
 
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Features
+## 📖 Introduction
 
-- **Conversation:** Build chatbots and conversational AI agents.
-- **Code Generation:** Automate code writing for various purposes.
-- **Image Generation:** Comming Soon.
-- **Audio Generation:** Comming Soon.
-- **Video Generation:** Comming Soon.
+Hashira-AI is a powerful platform that leverages the latest advancements in AI to provide a wide range of tools for various creative and development tasks. Whether you need to generate code, create stunning images, produce audio, craft videos, or engage in meaningful conversations, Hashira-AI has you covered.
 
-## Installation
+## ✨ Features
 
-1. Clone the repository
+- **Conversation Generation**: Engage in AI-powered conversations.
+- **Image Generation**: Create stunning images using advanced AI models.
+- **Audio Generation**: Produce high-quality audio content.
+- **Video Generation**: Craft videos with AI-driven tools.
+- **Code Generation**: Generate code snippets to accelerate your development process.
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, TailwindCSS, shadcn
+- **Backend**: Prisma, Replicate AI, OpenAI
+- **Authentication**: Clerk
+- **Payments**: Stripe
+- **Database**: PostgreSQL (Dockerized)
+- **Containerization**: Docker, docker-compose
+
+## 🚀 Installation
+
+To get started with Hashira-AI, follow these steps:
+
+1. **Clone the repository**:
     ```bash
-    git clone https://github.com/codemononoke/trello-clone
-    cd trello-clone
+    git clone https://github.com/yourusername/hashira-ai.git
+    cd hashira-ai
     ```
 
-2. Install dependencies
+2. **Install dependencies**:
     ```bash
     npm install
     ```
 
-3. Set up your Prisma schema
-    ```bash
-    npx prisma generate
-    npx prisma migrate dev --name init
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory and add your environment variables. Here's an example:
+    ```env
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+    CLERK_SECRET_KEY=your-clerk-secret-key
+
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+
+    OPENAI_API_KEY=your-openai-api-key
+    REPLICATE_API_TOKEN=your-replicate-api-token
+
+    POSTGRES_HOST=your-postgres-host
+    POSTGRES_PORT=your-postgres-port
+    POSTGRES_USER=your-postgres-user
+    POSTGRES_PASSWORD=your-postgres-password
+    POSTGRES_DB=your-postgres-db
+
+    DATABASE_URL=postgresql://your-postgres-user:your-postgres-password@your-postgres-host:your-postgres-port/your-postgres-db?schema=public
+
+    STRIPE_API_KEY=your-stripe-api-key
+    STRIPE_WEBHOOK_SECRET=your-stripe-webhook-secret
+
+    NEXT_PUBLIC_APP_URL=your-app-url
     ```
-    
-## Environment Variables
 
-Create a `.env` file in the root of your project and add the following variables:
+4. **Set up PostgreSQL with Docker**:
+    ```bash
+    docker-compose up -d
+    ```
 
-```env
-# clerk auth keys
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-CLERK_SECRET_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+5. **Run database migrations**:
+    ```bash
+    npx prisma migrate dev
+    ```
 
-# clerk redirect url(s)
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
-
-# openai api key
-OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-```
-
-## Usage
-
-1. Run the development server
+6. **Start the development server**:
     ```bash
     npm run dev
     ```
 
-2. Open http://localhost:3000 with your browser to see the result.
+## 💻 Usage
+
+Visit `http://localhost:3000` to access the Hashira-AI platform. Use the provided tools to generate conversations, images, audio, videos, and code.
+
+## 🤝 Contributing
+
+We welcome contributions from the community. To contribute, please follow these steps:
+
+1. **Fork the repository**.
+2. **Create a new branch**:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. **Make your changes**.
+4. **Commit your changes**:
+    ```bash
+    git commit -m "Add feature: your feature name"
+    ```
+5. **Push to the branch**:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+6. **Create a pull request**.
 
 
-## Contributing
+## :star: Give A Star
 
-1. Fork the repository.
-2. Clone the forked repository to your local machine.
-3. Install dependencies with npm install.
-4. Add an .env file for environment variables.
-5. Make your changes and create a pull request.
+You can also give this repository a star to show more people and they can use this repository.
 
-## License
+## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Contact
-
-For questions or feedback, please contact us at priyanshup891@gmail.com.
-
-If you find Hashira-AI helpful, please consider giving it a star on GitHub to show your support!
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
